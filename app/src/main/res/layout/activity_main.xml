@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,128 +10,146 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONVERSION DE TEMPÉRATURE"
-        android:textSize="18sp"
+        android:text="CONVERSION DE TEMPERATURE"
         android:textStyle="bold"
-        android:typeface="serif"
-        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/textViewInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliquer sur une unité de départ"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <ImageButton
-        android:id="@+id/imageButtonC"
+        android:id="@+id/imageButtonCelsius"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/tc2"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonF"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
-
+        android:contentDescription="Celsius"
+        app:layout_constraintTop_toBottomOf="@id/textViewInstruction"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"/>
 
     <ImageButton
-        android:id="@+id/imageButtonF"
+        android:id="@+id/imageButtonFahrenheit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/tf2"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonC"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonK"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:contentDescription="Fahrenheit"
+        app:layout_constraintTop_toBottomOf="@id/textViewInstruction"
+        app:layout_constraintLeft_toRightOf="@id/imageButtonCelsius"
+        app:layout_constraintRight_toLeftOf="@id/imageButtonKelvin"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <ImageButton
-        android:id="@+id/imageButtonK"
+        android:id="@+id/imageButtonKelvin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/tk2"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:contentDescription="Kelvin"
+        app:layout_constraintTop_toBottomOf="@id/textViewInstruction"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextvaleur"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Enter Value"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonCelsius"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonConvert"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"/>
 
     <TextView
         android:id="@+id/textViewunite0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="°C"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonC"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/editTextvaleur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Entrez la valeur"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/textViewunite0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
-    <Button
-        android:id="@+id/buttonConver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conver."
-        app:layout_constraintTop_toBottomOf="@+id/editTextvaleur"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
-    <Button
-        android:id="@+id/buttonRAZ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RAZ"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConver"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/editTextvaleur"
+        app:layout_constraintLeft_toRightOf="@id/editTextvaleur"
+        android:layout_marginLeft="8dp"/>
 
     <TextView
         android:id="@+id/textViewtemperature1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRAZ"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="T°"
+        app:layout_constraintBottom_toTopOf="@id/buttonConvert"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="18dp"/>
+
     <TextView
         android:id="@+id/textViewunite1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="°F"
-        app:layout_constraintTop_toBottomOf="@+id/textViewtemperature1"
+        app:layout_constraintTop_toTopOf="@id/textViewtemperature1"
+        app:layout_constraintBottom_toBottomOf="@id/textViewtemperature1"
+        app:layout_constraintRight_toLeftOf="@id/textViewtemperature1"
+        android:layout_marginRight="8dp"/>
+
+    <Button
+        android:id="@+id/buttonConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conver."
+        app:layout_constraintTop_toBottomOf="@id/imageButtonCelsius"
+        app:layout_constraintLeft_toRightOf="@id/editTextvaleur"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:gravity="center"/>
 
 
     <TextView
         android:id="@+id/textViewtemperature2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintTop_toBottomOf="@+id/textViewunite1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="T°"
+        app:layout_constraintTop_toBottomOf="@id/buttonConvert"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="18dp"/>
+
     <TextView
         android:id="@+id/textViewunite2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="K"
-        app:layout_constraintTop_toBottomOf="@+id/textViewtemperature2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="°K"
+        app:layout_constraintTop_toTopOf="@id/textViewtemperature2"
+        app:layout_constraintBottom_toBottomOf="@id/textViewtemperature2"
+        app:layout_constraintRight_toLeftOf="@id/textViewtemperature2"
+        android:layout_marginRight="8dp"/>
 
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="RAZ"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonConvert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
         textViewtemperature1 = findViewById(R.id.textViewtemperature1);
         textViewtemperature2 = findViewById(R.id.textViewtemperature2);
 
-        // Gestionnaires d'événements pour les imageButtons
-        findViewById(R.id.imageButtonC).setOnClickListener(view -> setUnite(0));
-        findViewById(R.id.imageButtonF).setOnClickListener(view -> setUnite(1));
-        findViewById(R.id.imageButtonK).setOnClickListener(view -> setUnite(2));
+        findViewById(R.id.imageButtonCelsius).setOnClickListener(view -> setUnite(0));
+        findViewById(R.id.imageButtonFahrenheit).setOnClickListener(view -> setUnite(1));
+        findViewById(R.id.imageButtonKelvin).setOnClickListener(view -> setUnite(2));
 
-        findViewById(R.id.buttonConver).setOnClickListener(view -> convertTemperature());
-        findViewById(R.id.buttonRAZ).setOnClickListener(view -> resetFields());
+        findViewById(R.id.buttonConvert).setOnClickListener(view -> convertTemperature());
+        findViewById(R.id.buttonReset).setOnClickListener(view -> resetFields());
     }
 
     private void setUnite(int selectedUnite) {
